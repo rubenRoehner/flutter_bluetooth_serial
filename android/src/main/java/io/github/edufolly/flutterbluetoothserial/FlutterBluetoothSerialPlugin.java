@@ -1002,13 +1002,14 @@ public class FlutterBluetoothSerialPlugin implements MethodCallHandler, RequestP
 
     @Override
     public boolean onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        switch (requestCode) {
-            case REQUEST_COARSE_LOCATION_PERMISSIONS:
-                pendingPermissionsEnsureCallbacks.onResult(grantResults[0] == PackageManager.PERMISSION_GRANTED);
-                pendingPermissionsEnsureCallbacks = null;
-                return true;
-        }
-        return false;
+        // switch (requestCode) {
+        //     case REQUEST_COARSE_LOCATION_PERMISSIONS:
+        //         pendingPermissionsEnsureCallbacks.onResult(grantResults[0] == PackageManager.PERMISSION_GRANTED);
+        //         pendingPermissionsEnsureCallbacks = null;
+        //         return true;
+        // }
+        // return false;
+        return true;
     }
 
     @Override
