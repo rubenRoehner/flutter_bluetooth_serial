@@ -989,11 +989,11 @@ public class FlutterBluetoothSerialPlugin implements MethodCallHandler, RequestP
                 Manifest.permission.ACCESS_COARSE_LOCATION) 
                     != PackageManager.PERMISSION_GRANTED
         ) {
-            // ActivityCompat.requestPermissions(registrar.activity(),
-            //     new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
-            //         REQUEST_COARSE_LOCATION_PERMISSIONS);
+            ActivityCompat.requestPermissions(registrar.activity(),
+                new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
+                    REQUEST_COARSE_LOCATION_PERMISSIONS);
 
-            // pendingPermissionsEnsureCallbacks = callbacks;
+            pendingPermissionsEnsureCallbacks = callbacks;
         }
         else {
             callbacks.onResult(true);
@@ -1002,13 +1002,13 @@ public class FlutterBluetoothSerialPlugin implements MethodCallHandler, RequestP
 
     @Override
     public boolean onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        // switch (requestCode) {
-        //     case REQUEST_COARSE_LOCATION_PERMISSIONS:
-        //         pendingPermissionsEnsureCallbacks.onResult(grantResults[0] == PackageManager.PERMISSION_GRANTED);
-        //         pendingPermissionsEnsureCallbacks = null;
-        //         return true;
-        // }
-        // return false;
+        switch (requestCode) {
+            case REQUEST_COARSE_LOCATION_PERMISSIONS:
+                pendingPermissionsEnsureCallbacks.onResult(grantResults[0] == PackageManager.PERMISSION_GRANTED);
+                pendingPermissionsEnsureCallbacks = null;
+                return true;
+        }
+        return false;
         return true;
     }
 
