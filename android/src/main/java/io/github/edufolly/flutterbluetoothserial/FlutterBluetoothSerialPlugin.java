@@ -49,7 +49,7 @@ public class FlutterBluetoothSerialPlugin implements MethodCallHandler, RequestP
     private Result pendingResultForActivityResult = null;
 
     // Permissions and request constants
-    //private static final int REQUEST_COARSE_LOCATION_PERMISSIONS = 1451;
+    private static final int REQUEST_COARSE_LOCATION_PERMISSIONS = 1451;
     private static final int REQUEST_ENABLE_BLUETOOTH = 1337;
     private static final int REQUEST_DISCOVERABLE_BLUETOOTH = 2137;
 
